@@ -1,0 +1,31 @@
+`timescale 1ns/100ps
+
+	module tb;
+		reg a,b,cin;
+		wire s,cout;
+		
+		fulladder F(a,b,cin,s,cout);
+		
+		initial begin
+			$dumpfile("out.vcd");
+			$dumpvars(0,tb);
+
+			a=0;b=0;cin=0;
+			#1; $display("sum = %b; carry = %b",s,cout);
+			a=0;b=0;cin=1;
+			#1; $display("sum = %b; carry = %b",s,cout);
+			a=0;b=1;cin=0;
+			#1; $display("sum = %b; carry = %b",s,cout);
+			a=0;b=1;cin=1;
+			#1; $display("sum = %b; carry = %b",s,cout);
+			a=1;b=0;cin=0;
+			#1; $display("sum = %b; carry = %b",s,cout);
+			a=1;b=0;cin=1;
+			#1; $display("sum = %b; carry = %b",s,cout);
+			a=1;b=1;cin=0;
+			#1; $display("sum = %b; carry = %b",s,cout);
+			a=1;b=1;cin=1;
+			#1; $display("sum = %b; carry = %b",s,cout);
+
+		end
+	endmodule
