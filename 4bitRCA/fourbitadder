@@ -1,0 +1,11 @@
+module  fourbitadder(a,b,cin,s,cout3);
+	input [3:0]a,b;
+	input cin;
+	output [3:0]s;
+	output cout3;
+		
+	fulladder F1(a[0],b[0],cin,s[0],cout);
+	fulladder F2(a[1],b[1],cout,s[1],cout1);
+	fulladder F3(a[2],b[2],cout1,s[2],cout2);
+	fulladder F4(a[3],b[3],cout2,s[3],cout3);
+endmodule
