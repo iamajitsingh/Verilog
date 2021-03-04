@@ -1,0 +1,28 @@
+ `timescale 1ns
+
+   module fourbitadder_tb;
+       reg [3:0]a,b;
+       reg  cin;
+       wire [3:0]s;
+       wire  cout;
+       integer i,j;
+       integer flag=0;
+
+       fourbitadder A(a,b,cin,s,cout);
+       
+       
+       initial begin
+        
+           $dumpvars(0,fourbitadder_tb);
+           cin=0;
+           for(i=0;i<15;i=i+1) begin
+              for(j=0;j<15;j=j+1) begin
+              a=i;b=j;#2
+              $display("%d + %d= %d,%b (%d)", i,j,s,cout,{cout,s});
+             end
+           end
+         
+           $finish;
+       end
+   endmodule
+            
